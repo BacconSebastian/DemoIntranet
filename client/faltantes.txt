@@ -1,0 +1,7 @@
+Panel presidente: 
+	Popup para administrar los equipo agregados a jugadores/entrenadores/equipo
+	Poner un boton arriba a la izquierda para volver a la pagina anterior. (GO BACK)
+	Recorrer todo el nuevo flujo y corregir errores de estilo
+
+Seba:
+	detail equipo ver el flujo de añadir relaciones

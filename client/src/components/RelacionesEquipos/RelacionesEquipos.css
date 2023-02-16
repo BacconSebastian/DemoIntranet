@@ -1,0 +1,57 @@
+@import url(../../App.css);
+
+.sub-title {
+    font-size: 1.5rem !important;
+    margin-right: 1rem;
+}
+
+.modalContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+}
+
+.subModalContainer {
+    width: 100%;
+}
+
+.subModalContainer1 {
+    width: 100%;
+}
+
+.tableContainer {
+    margin-top: 2rem;
+}
+
+.modal-footer {
+    margin-top: 0.5rem;
+}
+
+
+@media (min-width: 768px) {
+    .modalContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+    }
+
+    .modalContainer form {
+        display: flex;
+    }
+
+    .subModalContainer {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .tableContainer {
+        margin-top: 2rem;
+    }
+
+    .modal-footer {
+        margin: 0;
+        margin-left: 0.5rem;
+    }
+}

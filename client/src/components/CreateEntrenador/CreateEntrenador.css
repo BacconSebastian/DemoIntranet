@@ -1,0 +1,68 @@
+@import url(../../App.css);
+
+.create-entrenador {
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+}
+
+.create-entrenador form {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: .5rem;
+}
+
+.input-group span {
+  display: flex;
+  justify-content: center;
+  width: 10rem;
+  font-size: 10px;
+}
+
+.table-data {
+  text-align: center;
+  font-size: 12px;
+}
+
+.error-sin-equipos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5rem 0 2rem 0;
+}
+
+.error-sin-equipos p {
+  color: var(--error-color);
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+}
+
+.error-sin-equipos a {
+  color: var(--links-color);
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  margin-left: 0.5rem;
+}
+
+.equipo-agregado {
+  font-size: 14px
+}
+
+.equipo-agregado span {
+  font-size: 10px;
+}
+
+@media (min-width: 768px) {
+  .error-sin-equipos p {
+    font-size: 16px;
+  }
+
+  .error-sin-equipos a {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,33 @@
+.Cointainer {
+    /* border: solid 5px yellow; */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/001/220/906/large_2x/white-wave-background-business-template-vector.jpg");
+    flex-grow:calc(1);
+}
+.navVertical{
+    display: flex;
+    border: solid 2px rgb(255, 0, 0);
+    width: 15%;
+    height: 50%;
+    z-index: 2;
+    position: absolute;
+    top: 10%;
+}
+.box{
+    border: solid 2px green;
+    position: absolute;
+    
+    z-index: 3;
+    left: 20%;
+    top: 10%;
+    width: 1450px;
+    height: 62%;
+    margin: 2% 2% 2% 2%;
+    
+
+}
+.ListBorder{
+    border: solid 1px black;
+}

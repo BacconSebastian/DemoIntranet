@@ -1,0 +1,51 @@
+@import url('../../App.css');
+
+.homeLanding {
+    background-image: url('../../images/landingPage/landingPage.jpg');
+    /* background-size: cover; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* width: auto; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+.titleLanding {
+    display: flex;
+    justify-content: center;
+    padding-top: 23rem;
+    font-size: 60px;
+    font-weight: bold;
+    color: #FFFFFF;
+    filter: drop-shadow(2px 2px 2px black);
+}
+
+@media (min-width: 768px) {
+    .homeLanding {
+        background-image: url('../../images/landingPage/landingPage.jpg');
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+    }
+
+    .titleLanding {
+        display: flex;
+        justify-content: center;
+        padding-top: 23rem;
+        font-size: 60px;
+        font-weight: bold;
+        color: #FFFFFF;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+}

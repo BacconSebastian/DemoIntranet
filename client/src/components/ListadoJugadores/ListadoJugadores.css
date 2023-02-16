@@ -1,0 +1,6 @@
+@import url(../../App.css);
+
+.listado-jugadores {
+  width: 100%;
+  padding: 2rem;
+}

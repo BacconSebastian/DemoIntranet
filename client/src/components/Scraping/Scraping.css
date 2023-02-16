@@ -1,0 +1,8 @@
+.titles-container {
+  padding: 2rem;
+}
+
+.titles-container .title {
+  font-size: 12px;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,13 @@
+@import url(../../App.css);
+
+.logout {
+  background-color: transparent;
+  border: none;
+  color: var(--links-color);
+  outline: none;
+}
+
+.logout:focus {
+  outline: none;
+  border: none;
+}

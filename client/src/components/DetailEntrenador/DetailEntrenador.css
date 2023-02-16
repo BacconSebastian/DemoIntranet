@@ -1,0 +1,14 @@
+@import url(../../App.css);
+
+.entrenador-detail {
+  padding-top: 2rem;
+}
+
+.relaciones-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.relacion-container {
+  width: 100%;
+}

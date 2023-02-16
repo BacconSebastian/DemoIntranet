@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700;900&display=swap');
+
+html, * {
+    padding: 0;
+    margin: 0;
+
+    --first-color: #184e61;
+    --second-color: #0c91ae;
+    --third-color: #a7f3fa;
+    --fourth-color: white;
+    --links-color: #3185FC;
+    --error-color: rgb(255, 128, 128);
+    --shadow: #01040434;
+    --text-disabled: #84888B;
+    
+    /* --first-color: #EEEEEE;
+    --second-color: #7EFAFF;
+    --third-color: #393E46;
+    --fourth-color: #222831; */
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--first-color);
+    cursor: pointer;
+}
+
+p {
+    cursor: default;
+}
+
+li {
+    list-style: none;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.sub-title {
+    margin-bottom: 1rem;
+}
+
+.app {
+    min-height: 100vh;
+
+    background-color: #FFFFFF;
+    color: var(--first-color);
+}
+
+.table {
+    background-color: #FFFFFF;
+}
+
+.table tbody .clickable:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+td.table-data {
+    margin: auto 0;
+}
+
+.example-text {
+    color: var(--text-disabled);
+}
+
+.input-error {
+    color: var(--error-color);
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.error-permisos {
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.error-permisos a {
+    color: var(--links-color);
+}
+
+.agregar-icon {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}

@@ -1,0 +1,10 @@
+@import url(../../App.css);
+
+.listado-equipos {
+  width: 100%;
+  padding: 2rem;
+}
+
+.button-agregar {
+  text-decoration: none;
+}

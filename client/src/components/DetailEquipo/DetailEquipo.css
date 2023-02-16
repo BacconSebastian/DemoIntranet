@@ -1,0 +1,40 @@
+@import url(../../App.css);
+
+.equipo-detail {
+  padding-top: 2rem;
+}
+
+.relacion-container .sub-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.botonVolverDetail {
+  border: none;
+  padding: 10px;
+  background-color: #FFFFFF;
+  color: #0D6EFD;
+}
+
+@media (min-width: 768px) {
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .relaciones-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .equipo-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .relacion-container {
+    width: 50%;
+  }
+}
