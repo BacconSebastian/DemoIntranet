@@ -9,7 +9,7 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=1324
       - DB_DATABASE=Demo-Intranet
-      - DB_HOST=db
+      - DB_HOST=13.42.129.29
     volumes:
       - ./api:/usr/src/app
     depends_on:
