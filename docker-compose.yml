@@ -1,0 +1,83 @@
+version: "3.3"
+services:
+  expressapp:
+    container_name: api-intranet
+    build: ./api
+    expose:
+      - 3001
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=1324
+      - DB_DATABASE=Demo-Intranet
+      - DB_HOST=db
+    volumes:
+      - ./api:/usr/src/app
+    depends_on:
+      - db
+    networks:
+      - intranet-network
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1324
+      - POSTGRES_DB=Demo-Intranet
+    networks:
+      - intranet-network
+  reactapp:
+    container_name: client-intranet
+    build: ./client
+    expose:
+      - 3000
+    volumes:
+      - ./client:/usr/src/app
+    networks:
+      - intranet-network
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    links:
+      - expressapp
+      - reactapp
+      - nginx-proxy
+      - letsencrypt
+    environment:
+      - VIRTUAL_HOST=sportsevolution.es
+      - LETSENCRYPT_HOST=sportsevolution.es
+    restart: always
+    networks:
+      - intranet-network
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - vhostd:/etc/nginx/vhost.d:rw
+      - html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+
+volumes:
+  certs:
+  html:
+  vhostd:
+
+
+networks:
+  intranet-network:
+    driver: bridge
