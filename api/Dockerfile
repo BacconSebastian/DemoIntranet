@@ -8,6 +8,8 @@ RUN npm install
 
 RUN npm i serve
 
+RUN npm i https
+
 EXPOSE 3001
 
 CMD ["npm", "run", "serve"]

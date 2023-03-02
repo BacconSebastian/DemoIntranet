@@ -1,4 +1,7 @@
-const express = require("express");
+const express = require('express');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -11,8 +14,13 @@ const server = express();
 
 server.name = "API";
 
+http.createServer((req, res) => {
+  res.writeHead(301, { 'Location': 'https://' + req.headers.host + req.url });
+  res.end();
+}).listen(80);
+
 const corsOptions = {
-  origin: "http://13.42.129.29",
+  origin: "https://13.42.129.29",
   credentials: true,
 };
 
@@ -42,4 +50,9 @@ server.use((err, req, res, next) => {
   res.status(status).send(message);
 });
 
-module.exports = server;
+const options = {
+  key: fs.readFileSync('/path/to/private/key.pem'),
+  cert: fs.readFileSync('/path/to/certificate.pem')
+};
+
+https.createServer(options, server).listen(443);
