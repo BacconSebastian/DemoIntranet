@@ -11,7 +11,7 @@ import {
 import { UID_PRESIDENTE } from "../../config";
 import { JUGADORES, ENTRENADORES, PRESIDENTE } from "../../config";
 
-const url = "http://localhost";
+const url = "http://13.42.129.29";
 const auth = getAuth();
 
 export function hasError(error) {
