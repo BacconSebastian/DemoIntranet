@@ -14,7 +14,7 @@ const {
 
 const router = Router();
 
-router.get("/equipos", async (req, res) => {
+router.get("/api/equipos", async (req, res) => {
   try {
     const allEquipos = await Equipos.findAll();
     res.status(200).send(allEquipos);
@@ -23,7 +23,7 @@ router.get("/equipos", async (req, res) => {
   }
 });
 
-router.post("/crear-equipo", async (req, res) => {
+router.post("/api/crear-equipo", async (req, res) => {
   try {
     if (!req.body.length) {
       const { nombre, ciudad } = req.body;
@@ -39,7 +39,7 @@ router.post("/crear-equipo", async (req, res) => {
   }
 });
 
-router.put("/editar-equipo", async (req, res) => {
+router.put("/api/editar-equipo", async (req, res) => {
   try {
     if (req.body.editar) {
       const updateData = {};
@@ -63,7 +63,7 @@ router.put("/editar-equipo", async (req, res) => {
   }
 });
 
-router.delete("/eliminar-equipo", async (req, res) => {
+router.delete("/api/eliminar-equipo", async (req, res) => {
   try {
     const { nombre, ciudad } = req.body;
     const equipoEliminado = await Equipos.destroy({
@@ -78,7 +78,7 @@ router.delete("/eliminar-equipo", async (req, res) => {
   }
 });
 
-router.get("/entrenadores", async (req, res) => {
+router.get("/api/entrenadores", async (req, res) => {
   try {
     const allEntrenadores = await Entrenadores.findAll();
     res.status(200).send(allEntrenadores);
@@ -87,7 +87,7 @@ router.get("/entrenadores", async (req, res) => {
   }
 });
 
-router.post("/crear-entrenador", async (req, res) => {
+router.post("/api/crear-entrenador", async (req, res) => {
   try {
     const { nombre, email } = req.body;
     const entrenador = await Entrenadores.create({
@@ -100,7 +100,7 @@ router.post("/crear-entrenador", async (req, res) => {
   }
 });
 
-router.put("/editar-entrenador", async (req, res) => {
+router.put("/api/editar-entrenador", async (req, res) => {
   try {
     if (req.body.editar) {
       const updateData = {};
@@ -125,7 +125,7 @@ router.put("/editar-entrenador", async (req, res) => {
   }
 });
 
-router.delete("/eliminar-entrenador", async (req, res) => {
+router.delete("/api/eliminar-entrenador", async (req, res) => {
   try {
     const { email } = req.body;
     const entrenadorEliminado = await Entrenadores.destroy({
@@ -139,7 +139,7 @@ router.delete("/eliminar-entrenador", async (req, res) => {
   }
 });
 
-router.get("/jugadores", async (req, res) => {
+router.get("/api/jugadores", async (req, res) => {
   try {
     const allJugadores = await Jugadores.findAll();
     res.status(200).send(allJugadores);
@@ -148,7 +148,7 @@ router.get("/jugadores", async (req, res) => {
   }
 });
 
-router.post("/crear-jugador", async (req, res) => {
+router.post("/api/crear-jugador", async (req, res) => {
   try {
     const { nombre, email } = req.body;
     const jugador = await Jugadores.create({
@@ -161,7 +161,7 @@ router.post("/crear-jugador", async (req, res) => {
   }
 });
 
-router.put("/editar-jugador", async (req, res) => {
+router.put("/api/editar-jugador", async (req, res) => {
   try {
     if (req.body.editar) {
       const updateData = {};
@@ -186,7 +186,7 @@ router.put("/editar-jugador", async (req, res) => {
   }
 });
 
-router.delete("/eliminar-jugador", async (req, res) => {
+router.delete("/api/eliminar-jugador", async (req, res) => {
   try {
     const { email } = req.body;
     const jugadorEliminado = await Jugadores.destroy({
@@ -200,7 +200,7 @@ router.delete("/eliminar-jugador", async (req, res) => {
   }
 });
 
-router.post("/relacionar-entrenador-equipo", async (req, res) => {
+router.post("/api/relacionar-entrenador-equipo", async (req, res) => {
   try {
     const { email, nombre } = req.body;
     const entrenador = await Entrenadores.findOne({ where: { email } });
@@ -215,7 +215,7 @@ router.post("/relacionar-entrenador-equipo", async (req, res) => {
   }
 });
 
-router.get("/entrenadores-equipos", async (req, res) => {
+router.get("/api/entrenadores-equipos", async (req, res) => {
   try {
     const equiposEntrenadores = await Equiposentrenadores.findAll();
     res.send(equiposEntrenadores);
@@ -225,7 +225,7 @@ router.get("/entrenadores-equipos", async (req, res) => {
   }
 });
 
-router.post("/relacionar-jugador-equipo", async (req, res) => {
+router.post("/api/relacionar-jugador-equipo", async (req, res) => {
   try {
     const { email, nombre } = req.body;
     const equipo = await Equipos.findOne({ where: { nombre } });
@@ -240,7 +240,7 @@ router.post("/relacionar-jugador-equipo", async (req, res) => {
   }
 });
 
-router.get("/jugadores-equipos", async (req, res) => {
+router.get("/api/jugadores-equipos", async (req, res) => {
   try {
     const jugadoresEquipos = await Jugadoresequipos.findAll();
     res.send(jugadoresEquipos);
@@ -250,7 +250,7 @@ router.get("/jugadores-equipos", async (req, res) => {
   }
 });
 
-router.get("/noticias-deportivas", (req, res) => {
+router.get("/api/noticias-deportivas", (req, res) => {
   axios
     .get("https://www.afe-futbol.com/deportivo/")
     .then((response) => {

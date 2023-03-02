@@ -44,12 +44,6 @@ services:
     networks:
       - intranet-network
 
-volumes:
-  certs:
-  html:
-  vhostd:
-
-
 networks:
   intranet-network:
     driver: bridge

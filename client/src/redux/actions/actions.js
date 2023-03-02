@@ -34,7 +34,7 @@ export function resetError() {
 export function getEntrenadores() {
   return async function (dispatch) {
     try {
-      let response = await axios.get(url + "/entrenadores");
+      let response = await axios.get(url + "/api/entrenadores");
       return dispatch({
         type: "GET_ENTRENADORES",
         payload: response || [],
@@ -58,7 +58,7 @@ export function createEntrenador(input) {
       };
 
       const response = await axios.post(
-        url + "/crear-entrenador",
+        url + "/api/crear-entrenador",
         dataCreacion
       );
 
@@ -72,7 +72,7 @@ export function createEntrenador(input) {
           console.log("DATA RELACION MAPEADA: ", dataRelacion);
 
           const relacion = await axios.post(
-            url + "/relacionar-entrenador-equipo",
+            url + "/api/relacionar-entrenador-equipo",
             dataRelacion
           );
         });
@@ -95,7 +95,7 @@ export function createEntrenador(input) {
 export function editarEntrenador(data) {
   return async function (dispatch) {
     try {
-      let response = await axios.put(url + "/editar-entrenador", data);
+      let response = await axios.put(url + "/api/editar-entrenador", data);
       return dispatch({
         type: "EDITAR_ENTRENADOR",
         payload: response.data || {},
@@ -121,7 +121,7 @@ export function registerEntrenador(input) {
 
       console.log("USER DESDE REGISTER: ", user);
 
-      let entrenadorEditado = await axios.put(url + "/editar-entrenador", {
+      let entrenadorEditado = await axios.put(url + "/api/editar-entrenador", {
         uid: user.user.uid,
         editar: input.email,
       });
@@ -146,10 +146,10 @@ export function relacionarEntrenadorEquipo(data) {
   return async function (dispatch) {
     try {
       let relacion = await axios.post(
-        url + "/relacionar-entrenador-equipo",
+        url + "/api/relacionar-entrenador-equipo",
         data
       );
-      let response = await axios.get(url + "/entrenadores-equipos");
+      let response = await axios.get(url + "/api/entrenadores-equipos");
       return dispatch({
         type: "GET_ENTRENADORES_EQUIPOS",
         payload: response,
@@ -167,7 +167,7 @@ export function relacionarEntrenadorEquipo(data) {
 export function getEquipos() {
   return async function (dispatch) {
     try {
-      let response = await axios.get(url + "/equipos");
+      let response = await axios.get(url + "/api/equipos");
       return dispatch({
         type: "GET_EQUIPOS",
         payload: response || [],
@@ -185,7 +185,7 @@ export function getEquipos() {
 export function createEquipo(input) {
   return async function (dispatch) {
     try {
-      const response = await axios.post(url + "/crear-equipo", input);
+      const response = await axios.post(url + "/api/crear-equipo", input);
 
       if (input.entrenadoresAgregados.length) {
         input.entrenadoresAgregados.map(async (entrenador) => {
@@ -197,7 +197,7 @@ export function createEquipo(input) {
           console.log("DATA RELACION ENTRENADORES: ", dataRelacion);
 
           const relacion = await axios.post(
-            url + "/relacionar-entrenador-equipo",
+            url + "/api/relacionar-entrenador-equipo",
             dataRelacion
           );
         });
@@ -213,7 +213,7 @@ export function createEquipo(input) {
           console.log("DATA RELACION JUGADORES: ", dataRelacion);
 
           const relacion = await axios.post(
-            url + "/relacionar-jugador-equipo",
+            url + "/api/relacionar-jugador-equipo",
             dataRelacion
           );
         });
@@ -236,7 +236,7 @@ export function createEquipo(input) {
 export function editarEquipo(data) {
   return async function (dispatch) {
     try {
-      let response = await axios.put(url + "/editar-equipo", data);
+      let response = await axios.put(url + "/api/editar-equipo", data);
       return dispatch({
         type: "EDITAR_EQUIPO",
         payload: response.data || {},
@@ -254,7 +254,7 @@ export function editarEquipo(data) {
 export function getJugadores() {
   return async function (dispatch) {
     try {
-      let response = await axios.get(url + "/jugadores");
+      let response = await axios.get(url + "/api/jugadores");
       return dispatch({
         type: "GET_JUGADORES",
         payload: response || [],
@@ -277,7 +277,7 @@ export function createJugador(input) {
         email: input.email,
       };
 
-      const response = await axios.post(url + "/crear-jugador", dataCreacion);
+      const response = await axios.post(url + "/api/crear-jugador", dataCreacion);
 
       if (input.equiposAgregados.length) {
         input.equiposAgregados.map(async (equipo) => {
@@ -287,7 +287,7 @@ export function createJugador(input) {
           };
 
           const relacion = await axios.post(
-            url + "/relacionar-jugador-equipo",
+            url + "/api/relacionar-jugador-equipo",
             dataRelacion
           );
         });
@@ -310,7 +310,7 @@ export function createJugador(input) {
 export function editarJugador(data) {
   return async function (dispatch) {
     try {
-      let response = await axios.put(url + "/editar-jugador", data);
+      let response = await axios.put(url + "/api/editar-jugador", data);
       return dispatch({
         type: "EDITAR_JUGADOR",
         payload: response.data || {},
